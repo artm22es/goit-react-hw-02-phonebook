@@ -1,5 +1,7 @@
 import { Component } from 'react';
 import { nanoid } from 'nanoid';
+import { GlobalStyle } from './GlobalStyle/GlobalStyle.styled';
+import { Layout } from './Layout/Layout.styled';
 import { ContactForm } from './ContactForm/ContactForm';
 import { ContactList } from './ContactList/ContactList';
 import { Filter } from './Filter/Filter';
@@ -49,14 +51,20 @@ export class App extends Component {
   render() {
     const filteredContacts = this.getFilteredContacts();
     return (
-      <>
+      <Layout>
+        <h1>Phonebook</h1>
         <ContactForm addContact={this.addContact} />
-        <Filter handleChangeFilter={this.handleChangeFilter} />
+        <h2>Contacts</h2>
+        <Filter
+          handleChangeFilter={this.handleChangeFilter}
+          text="Find filter by name"
+        />
         <ContactList
           contacts={filteredContacts}
           deleteContact={this.handleDelete}
         />
-      </>
+        <GlobalStyle />
+      </Layout>
     );
   }
 }

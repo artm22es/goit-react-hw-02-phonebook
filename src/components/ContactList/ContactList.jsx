@@ -1,12 +1,16 @@
+import { ContactListWrapper, ButtonDelete } from './ContactList.styled';
+
 export const ContactList = ({ contacts, deleteContact }) => {
   return (
-    <ul>
+    <ContactListWrapper>
       {contacts.map(contact => (
         <li key={contact.id}>
           {contact.name}: {contact.number}
-          <button onClick={() => deleteContact(contact.id)}>Delete</button>
+          <ButtonDelete onClick={() => deleteContact(contact.id)}>
+            Delete
+          </ButtonDelete>
         </li>
       ))}
-    </ul>
+    </ContactListWrapper>
   );
 };

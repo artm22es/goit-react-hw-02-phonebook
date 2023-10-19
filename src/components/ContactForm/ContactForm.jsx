@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import { ContactFormWrapper, ButtonForm } from './ContactForm.styled';
 
 export class ContactForm extends Component {
   state = {
@@ -18,23 +19,29 @@ export class ContactForm extends Component {
   };
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <input
-          type="text"
-          name="name"
-          value={this.state.name}
-          onChange={this.handleChange}
-          required
-        />
-        <input
-          type="text"
-          name="number"
-          value={this.state.number}
-          onChange={this.handleChange}
-          required
-        />
-        <button type="submit">Add contact</button>
-      </form>
+      <ContactFormWrapper onSubmit={this.handleSubmit}>
+        <label>
+          Name
+          <input
+            type="text"
+            name="name"
+            value={this.state.name}
+            onChange={this.handleChange}
+            required
+          />
+        </label>
+        <label>
+          Number
+          <input
+            type="text"
+            name="number"
+            value={this.state.number}
+            onChange={this.handleChange}
+            required
+          />
+        </label>
+        <ButtonForm type="submit">Add contact</ButtonForm>
+      </ContactFormWrapper>
     );
   }
 }
